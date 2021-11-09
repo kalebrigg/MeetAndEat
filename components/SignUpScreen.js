@@ -49,9 +49,11 @@ const SignUpScreen = ( {navigation} ) => {
 
         <Header/>
 
-        <Text style={styles.mainText}>
-          Sign up now to start eating with new friends!
-        </Text>
+        <View style={styles.center}>
+          <Text style={styles.mainText}>
+            Sign up now to start eating with new friends!
+          </Text>
+        </View>
 
         <Text style={styles.label}> Email: </Text>
         <TextInput
@@ -86,11 +88,12 @@ const SignUpScreen = ( {navigation} ) => {
             onPress={toggleChecked}
           />
 
-
-        <TouchableOpacity
-          style={styles.button} onPress={ signUpButtonPressed }>
-            <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
+        <View style={styles.center}>
+          <TouchableOpacity
+            style={styles.button} onPress={ signUpButtonPressed }>
+              <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
 
       </SafeAreaView>
     </View>
@@ -133,21 +136,20 @@ const styles = StyleSheet.create({
     borderColor:'#000000',
     borderRadius: 15,
     textAlign:'center',
-    marginLeft:31,
-    width:317,
+    marginLeft:"10%",
+    width:"80%",
     height:42,
   },
 
   label: {
     color:'black',
-    marginLeft: 30,
+    marginLeft: "10%",
     marginTop:20,
     fontSize: 20,
 
   },
 
   button: {
-    marginLeft:120,
     marginTop:25,
     flexDirection: 'row',
     justifyContent:'center',
@@ -174,9 +176,15 @@ const styles = StyleSheet.create({
   },
 
   bouncyStyle: {
-    marginLeft:40,
+    marginLeft:"10%",
     marginTop:20,
     marginBottom:60,
+  },
+
+  center: {
+    justifyContent:'center',
+    alignItems:'center',
+    alignContent:'center',
   }
 
 

@@ -5,7 +5,7 @@ import Header from './Header.js';
 import RadioGroup from 'react-native-radio-buttons-group';
 import {useState} from "react";
 
-const SignUpProfile = (navigation) => {
+const SignUpProfile = ( {navigation} ) => {
 
   const [nameText, nameChange] = React.useState(null);
   const [ageText, ageChange] = React.useState(null);
@@ -75,9 +75,11 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 
         <Header/>
 
-        <Text style={styles.mainText}>
-          Tell us a little about yourself!
-        </Text>
+        <View style={styles.center}>
+          <Text style={styles.mainText}>
+            Tell us a little about yourself!
+          </Text>
+        </View>
 
         <Text style={styles.label}> Full Name: </Text>
         <TextInput
@@ -113,16 +115,16 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
         onChangeText={nameChange}
         value={nameText}
         />
-        <Text style={styles.label}>
-          This might include your hobbies or anything fun or unique about you!
-        </Text>
+        <View style={styles.center}>
+          <Text style={styles.label2}>
+            This might include your hobbies or anything fun or unique about you!
+          </Text>
 
-
-
-        <TouchableOpacity
-          style={styles.button} onPress={() => navigation.navigate('Bootup')}>
-            <Text style={styles.buttonText}>Finish</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button} onPress={() => navigation.navigate('HomeScreen')}>
+              <Text style={styles.buttonText}>Finish</Text>
+          </TouchableOpacity>
+        </View>
 
       </SafeAreaView>
     </View>
@@ -131,8 +133,10 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 
 const styles = StyleSheet.create({
 
+  container: {
+  },
+
   mainText: {
-    marginLeft:25,
     marginTop:15,
     fontSize:26,
     textAlign:'center',
@@ -165,8 +169,8 @@ const styles = StyleSheet.create({
     borderColor:'#000000',
     borderRadius: 15,
     textAlign:'center',
-    marginLeft:31,
-    width:317,
+    marginLeft:"10%",
+    width:"80%",
     height:42,
   },
 
@@ -175,21 +179,27 @@ const styles = StyleSheet.create({
     borderColor:'#000000',
     borderRadius: 15,
     textAlign:'center',
-    marginLeft:31,
-    width:317,
+    marginLeft:"10%",
+    width:"80%",
     height:150,
   },
 
   label: {
     color:'black',
-    marginLeft: 30,
+    marginLeft: "10%",
     marginTop:10,
     fontSize: 20,
+  },
 
+  label2: {
+    color:'black',
+    width:"80%",
+    marginLeft:"5%",
+    marginTop:10,
+    fontSize: 20,
   },
 
   button: {
-    marginLeft:120,
     marginTop:25,
     flexDirection: 'row',
     justifyContent:'center',
@@ -227,6 +237,7 @@ const styles = StyleSheet.create({
     alignContent:"center",
     marginTop:15,
     marginBottom: 15,
+    marginLeft: "10%"
   },
 
   ageInput: {
@@ -241,7 +252,6 @@ const styles = StyleSheet.create({
 
   ageText: {
     color:'black',
-    marginLeft: 30,
     fontSize: 20,
 
   },
@@ -256,7 +266,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     color:"black",
-  }
+  },
+
+  center: {
+    justifyContent:'center',
+    alignItems:'center',
+    alignContent:'center',
+  },
 
 });
 

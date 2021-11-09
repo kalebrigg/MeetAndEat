@@ -215,6 +215,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation project(':react-native-maps') // at last
 }
 
 // Run this once to be able to run the application with BUCK

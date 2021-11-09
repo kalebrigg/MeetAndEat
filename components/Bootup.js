@@ -29,45 +29,57 @@ const Bootup = ( {navigation} ) => {
     <View styles={styles.container}>
       <SafeAreaView>
 
-        <View styles={styles.imageContainer}>
+        <View styles={styles.center}>
           <Image
           source={require('../assets/mainLogo3.png')}
           style={styles.mainImage}
           />
+        </View>
 
+        <View style={styles.center}>
           <Image
           source={require('../assets/Meet.png')}
           style={styles.imageTitle}
           />
         </View>
 
-        <Text style={styles.label}> Email: </Text>
-        <TextInput
-        placeholder="Enter your email"
-        style={styles.input}
-        onChangeText={emailChange}
-        value={emailText}
-        />
 
-        <Text style={styles.label}> Password: </Text>
-        <TextInput
+          <Text style={styles.label}> Email: </Text>
+        <View style={styles.center}>
+          <TextInput
+          placeholder="Enter your email"
           style={styles.input}
-          onChangeText={passwordChange}
-          value={passwordText}
-          placeholder="Enter your password"
-        />
+          onChangeText={emailChange}
+          value={emailText}
+          />
+        </View>
 
-        <TouchableOpacity
-          style={styles.button} onPress={ signInButtonPressed }>
-            <Text style={styles.buttonText}>Sign In</Text>
-        </TouchableOpacity>
 
-        <Text style={styles.label2}> Not yet a member? Sign up now! </Text>
+          <Text style={styles.label}> Password: </Text>
+        <View style={styles.center}>
+          <TextInput
+            style={styles.input}
+            onChangeText={passwordChange}
+            value={passwordText}
+            placeholder="Enter your password"
+          />
+        </View>
 
-        <TouchableOpacity
-          style={styles.button2} onPress={() => navigation.navigate('SignUpScreen')}>
-            <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
+        <View style={styles.center}>
+          <TouchableOpacity
+            style={styles.button} onPress={ signInButtonPressed }>
+              <Text style={styles.buttonText}>Sign In</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.center}>
+          <Text style={styles.label2}> Not yet a member? Sign up now! </Text>
+
+          <TouchableOpacity
+            style={styles.button2} onPress={() => navigation.navigate('Profile')}>
+              <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
 
       </SafeAreaView>
     </View>
@@ -77,25 +89,29 @@ const Bootup = ( {navigation} ) => {
 const styles = StyleSheet.create({
 
   container: {
-    flex: 1,
-    backgroungColor: '#fff',
-    
+    backgroundColor: '#FFE4B0',
+    flex:1,
+    flexDirection:'column',
   },
 
 
   mainImage: {
     height: 160,
-    width:179,
-    marginLeft:103,
+    width:"40%",
     marginTop:30,
     marginBottom:10,
+    marginLeft:"30%",
     resizeMode: 'contain'
   },
 
   imageTitle: {
     height:82,
     width:310,
-    marginLeft: 36,
+  },
+
+  imageContainer: {
+    justifyContent:'center',
+    alignItems:'center',
   },
 
   input: {
@@ -103,14 +119,13 @@ const styles = StyleSheet.create({
     borderColor:'#000000',
     borderRadius: 15,
     textAlign:'center',
-    marginLeft:31,
-    width:317,
+    width:"80%",
     height:42,
   },
 
   label: {
     color:'black',
-    marginLeft: 30,
+    marginLeft: "10%",
     marginTop:20,
     fontSize: 20,
 
@@ -118,14 +133,12 @@ const styles = StyleSheet.create({
 
   label2: {
     color:'black',
-    marginLeft: 41,
     marginTop:35,
     fontSize: 20,
 
   },
 
   button: {
-    marginLeft:120,
     marginTop:25,
     flexDirection: 'row',
     justifyContent:'center',
@@ -133,19 +146,18 @@ const styles = StyleSheet.create({
     borderColor:"#000000",
     borderWidth:1,
     borderRadius:5,
-    width:135,
+    width:"33%",
   },
 
   button2: {
-    marginLeft:120,
-    marginTop:10,
+    marginTop:15,
     flexDirection: 'row',
     justifyContent:'center',
     backgroundColor:"white",
     borderColor:"#000000",
     borderWidth:1,
     borderRadius:5,
-    width:135,
+    width:"33%",
   },
 
   buttonText: {
@@ -156,6 +168,18 @@ const styles = StyleSheet.create({
     paddingTop:5,
     paddingBottom:5,
     textAlign:'center',
+  },
+
+  container2: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  center: {
+    justifyContent:'center',
+    alignItems:'center',
+    alignContent:'center',
   }
 
 });

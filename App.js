@@ -21,6 +21,9 @@ import {
 import Bootup from './components/Bootup.js';
 import SignUpScreen from './components/SignUpScreen.js';
 import SignUpProfile from './components/SignUpProfile.js';
+import Footer from './components/Footer.js';
+import Profile from './components/Profile.js';
+import HomeScreen from './components/HomeScreen.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -59,6 +62,27 @@ function App() {
             headerShown:false,
           }}
         />
+          <Stack.Screen
+            name="HomeScreen"
+            component={HomeScreen}
+            options={{
+              headerShown:false,
+            }}
+        />
+        <Stack.Screen
+          name="Footer"
+          component={Footer}
+          options={{
+            headerShown:false,
+          }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown:false,
+        }}
+    />
       </Stack.Navigator>
     </NavigationContainer>
   );
