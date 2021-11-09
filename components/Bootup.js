@@ -76,7 +76,7 @@ const Bootup = ( {navigation} ) => {
           <Text style={styles.label2}> Not yet a member? Sign up now! </Text>
 
           <TouchableOpacity
-            style={styles.button2} onPress={() => navigation.navigate('Profile')}>
+            style={styles.button2} onPress={() => navigation.navigate('HomeScreen')}>
               <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </View>
@@ -90,8 +90,6 @@ const styles = StyleSheet.create({
 
   container: {
     backgroundColor: '#FFE4B0',
-    flex:1,
-    flexDirection:'column',
   },
 
 

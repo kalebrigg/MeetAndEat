@@ -61,6 +61,17 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
         </Text>
       </View>
 
+        <MapView
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+          style={styles.map}
+        />
+
+
       <View style={styles.timeContainer}>
         <Text style={styles.label2}> Time: </Text>
         <TextInput
@@ -99,7 +110,8 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 const styles = StyleSheet.create({
 
   map:{
-    flex:1,
+    height: 400,
+    width: 400,
   },
 
   mainText: {
