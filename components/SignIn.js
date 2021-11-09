@@ -3,11 +3,11 @@ import {View, Text, StyleSheet,Image,SafeAreaView, TextInput, Button, Alert, Tou
 
 
 
-const SignIn = (props) => {
+const SignIn = ( {navigation} ) => {
     const [emailText, emailChange] = React.useState(null);
     const [passwordText, passwordChange] = React.useState(null);
 
-    function signUpButtonPressed() {
+    function signInButtonPressed() {
       // Alert.alert('Sign In button pressed');
       if (emailText == null || passwordText == null)
       {
@@ -17,7 +17,7 @@ const SignIn = (props) => {
       {
         Alert.alert('Please enter your email and password');
       }
-      
+
       if (emailText == 'kaleb@gmail.com' && passwordText == 'password')
       {
         Alert.alert('Sign In Accepted');
@@ -43,14 +43,14 @@ const SignIn = (props) => {
       />
 
       <TouchableOpacity
-        style={styles.button} onPress={ signUpButtonPressed }>
+        style={styles.button} onPress={ signInButtonPressed }>
           <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
 
       <Text style={styles.label2}> Not yet a member? Sign up now! </Text>
 
       <TouchableOpacity
-        style={styles.button2} onPress={() => Alert.alert('Sign Up button pressed')}>
+        style={styles.button2} onPress={() => navigation.navigate('SignUpScreen')}>
           <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
 

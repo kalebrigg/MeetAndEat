@@ -2,8 +2,10 @@ import React from 'react';
 import {View, Text, StyleSheet,Image,SafeAreaView, TextInput, Button, Alert, TouchableOpacity, CheckBox } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import Header from './Header.js';
+import RadioGroup from 'react-native-radio-buttons-group';
+import {useState} from "react";
 
-const SignUpProfile = () => {
+const SignUpProfile = (navigation) => {
 
   const [nameText, nameChange] = React.useState(null);
   const [ageText, ageChange] = React.useState(null);
@@ -11,6 +13,29 @@ const SignUpProfile = () => {
   var maleChecked = false;
   var femaleChecked = false;
 
+  const radioButtonsData = [
+  {
+    id: '1',
+    label: 'Male',
+    value: 'option1',
+    color: 'black',
+    selected: true,
+  },
+  {
+    id: '2',
+    label: 'Female',
+    value: 'option2',
+    color: 'black',
+    selected: false,
+  },
+];
+
+const [radioButtons, setRadioButtons] = useState(radioButtonsData);
+
+  const onPressRadioButton = radioButtonsArray => {
+    console.log(radioButtonsArray);
+    setRadioButtons(radioButtonsArray);
+  };
 
   function signUpButtonPressed() {
     // Alert.alert('Sign In button pressed');
@@ -72,6 +97,15 @@ const SignUpProfile = () => {
           />
         </View>
 
+        <View style={styles.radioContainer} >
+          <RadioGroup
+            radioButtons={radioButtons}
+            onPress={onPressRadioButton}
+            layout="row"
+            style={styles.radio}
+          />
+        </View>
+
         <Text style={styles.label}> About You: </Text>
         <TextInput
         placeholder="Get Creative!"
@@ -86,7 +120,7 @@ const SignUpProfile = () => {
 
 
         <TouchableOpacity
-          style={styles.button} onPress={ signUpButtonPressed }>
+          style={styles.button} onPress={() => navigation.navigate('Bootup')}>
             <Text style={styles.buttonText}>Finish</Text>
         </TouchableOpacity>
 
@@ -192,6 +226,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
     alignContent:"center",
     marginTop:15,
+    marginBottom: 15,
   },
 
   ageInput: {
@@ -210,6 +245,18 @@ const styles = StyleSheet.create({
     fontSize: 20,
 
   },
+
+  radio: {
+    color:'black',
+    fontColor: 'black'
+  },
+
+  radioContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color:"black",
+  }
 
 });
 

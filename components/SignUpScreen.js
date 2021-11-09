@@ -4,7 +4,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import Header from './Header.js';
 
 
-const SignUpScreen = () => {
+const SignUpScreen = ( {navigation} ) => {
 
   const [emailText, emailChange] = React.useState(null);
   const [passwordText, passwordChange] = React.useState(null);
@@ -34,7 +34,7 @@ const SignUpScreen = () => {
     }
     else if (emailText == 'kaleb@gmail.com' && passwordText == 'password' && isChecked )
     {
-      Alert.alert('Sign Up Accepted');
+      navigation.navigate('SignUpProfile')
       return;
     }
   }
