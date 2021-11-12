@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   footerContainer: {
     flexDirection: 'row',
     backgroundColor:"white",
-    justifyContent:"space-around"
+    justifyContent:"space-around",
   },
 
   headerImage2: {

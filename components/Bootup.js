@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
     width:"80%",
     height:42,
+    backgroundColor:"white"
   },
 
   label: {

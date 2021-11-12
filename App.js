@@ -40,7 +40,12 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      screenOptions={{
+        contentStyle:{
+          backgroundColor:'#FFE4B0'
+        }
+      }}>
         <Stack.Screen
           name="Bootup"
           component={Bootup}

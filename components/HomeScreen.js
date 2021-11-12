@@ -7,10 +7,14 @@ import {useState} from "react";
 import MapView from "react-native-maps";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Footer from './Footer.js';
+import { Dimensions } from 'react-native';
+
 
 const HomeScreen = ( {navigation} ) => {
 
   const [nameText, nameChange] = React.useState(null);
+
+
 
   const radioButtonsData = [
   {
@@ -61,15 +65,40 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
         </Text>
       </View>
 
-        <MapView
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-          style={styles.map}
-        />
+          <View style={styles.searchContainer}>
+            <GooglePlacesAutocomplete
+              placeholder='Search'
+              fetchDetails={true}
+              style={styles.search}
+              onPress={(data, details = null) => {
+                // 'details' is provided when fetchDetails = true
+                console.log("BeenPressed");
+                displayMap();
+              }}
+              query={{
+                key: 'AIzaSyDKOJs8dJeNcV4SLsOzaZufE0FmlB0Mreo',
+                language: 'en',
+              }}
+            />
+        </View>
+
+  <View style={styles.mapContainer}>
+    <MapView
+      initialRegion={{
+        latitude: 40.233845,
+        longitude: -111.658531,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      }}
+      style={styles.map}
+      onPoiClick={e => console.log(e.nativeEvent)}
+    />
+  </View>
+
+
+
+
+
 
 
       <View style={styles.timeContainer}>
@@ -100,7 +129,10 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
         </TouchableOpacity>
       </View>
 
-      <Footer/>
+      <View style={styles.footer}>
+        <Footer/>
+      </View>
+
 
       </SafeAreaView>
     </View>
@@ -109,9 +141,31 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 
 const styles = StyleSheet.create({
 
+  search: {
+    width:"100%"
+  },
+
+  searchContainer: {
+    height:"40%",
+    width:"95%",
+    zIndex:10,
+    marginTop:10,
+    marginLeft:"2%",
+    marginRight:"2%",
+    },
+
   map:{
-    height: 400,
-    width: 400,
+    height:"100%",
+    width: "100%",
+  },
+
+  mapContainer:{
+    height:"40%",
+    width:'100%',
+    zIndex:2,
+    marginTop:10,
+    marginBottom:0,
+    display:"none"
   },
 
   mainText: {
@@ -195,7 +249,7 @@ const styles = StyleSheet.create({
 
   label2: {
     color:'black',
-    marginTop:300,
+    marginTop:10,
     fontSize: 18,
   },
 
@@ -207,7 +261,8 @@ const styles = StyleSheet.create({
     marginLeft:5,
     width:"20%",
     height:42,
-    marginTop:300,
+    marginTop:10,
+    backgroundColor:"white",
   },
 
 
@@ -215,7 +270,7 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     alignItems:"center",
     alignContent:"center",
-    marginTop:15,
+    marginTop:10,
     marginBottom: 5,
     marginLeft: "10%"
   },
@@ -226,6 +281,17 @@ const styles = StyleSheet.create({
     alignContent:'center',
   },
 
+  footer: {
+    width: '100%',
+    positon:"absolute",
+    bottom:-13,
+  },
+
 });
+
+function displayMap()
+{
+  styles.mapContainer={display:"block"}
+}
 
 export default HomeScreen;

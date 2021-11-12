@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 
   headerContainer: {
     flexDirection: 'row',
-    marginTop:2,
+    marginTop:0,
     backgroundColor:"white",
   },
 

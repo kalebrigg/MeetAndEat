@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     marginLeft:"10%",
     width:"80%",
     height:42,
+    backgroundColor:"white",
   },
 
   label: {

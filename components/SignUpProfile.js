@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
     marginLeft:"10%",
     width:"80%",
     height:42,
+    backgroundColor:"white",
   },
 
   inputBio: {
@@ -182,6 +183,7 @@ const styles = StyleSheet.create({
     marginLeft:"10%",
     width:"80%",
     height:150,
+    backgroundColor:'white',
   },
 
   label: {
@@ -248,6 +250,7 @@ const styles = StyleSheet.create({
     marginLeft:5,
     width:50,
     height:42,
+    backgroundColor:'white',
   },
 
   ageText: {
