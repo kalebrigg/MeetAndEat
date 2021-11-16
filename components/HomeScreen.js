@@ -10,10 +10,26 @@ import Footer from './Footer.js';
 import { Dimensions } from 'react-native';
 
 
+
+
 const HomeScreen = ( {navigation} ) => {
 
-  const [nameText, nameChange] = React.useState(null);
 
+  const [mapShow, toggleMap] = useState("none");
+  const [height, toggleHeight]= useState("40%");
+  const [width, toggleWidth]= useState("95%");
+
+  const [latitude, updateLat]= useState(0);
+  const [longitude, updateLng]= useState(0);
+  const [title, updateTitle]= useState("");
+  const [address, updateAdress]= useState("");
+  const [hours, updateHours]= useState("");
+
+
+  function rerender () {
+    toggleHeight("40%");
+    toggleMap("none");
+  }
 
 
   const radioButtonsData = [
@@ -41,6 +57,8 @@ const HomeScreen = ( {navigation} ) => {
 
 ];
 
+
+
 const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 
   const onPressRadioButton = radioButtonsArray => {
@@ -48,91 +66,135 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
     setRadioButtons(radioButtonsArray);
   };
 
+  function submitMeetup() {
+    Alert.alert("Your meetup has been created!");
+     navigation.navigate('Bootup')
+  }
 
+  let autoDisplay = "flex"
+
+  function disableAuto() {
+    autoDisplay = "none"
+    console.log("Tried to Change");
+  }
+
+  function getVal(num) {
+    if (num == 0)
+    { return 6;}
+    if (num == 1)
+    { return 0;}
+    else {
+      return num;
+    }
+  }
 
   return (
     <View styles={styles.container}>
       <SafeAreaView>
+      <View style={styles.flexWrapper}>
+          <View>
+              <Header/>
+              <View style={styles.buttonContainer}>
+                <Text style={styles.mainText}>
+                  Create a new meetup now!
+                </Text>
+              </View>
 
-      <Header/>
-      <View style={styles.buttonContainer}>
-        <Text style={styles.mainText}>
-          Welcome Kaleb,
-        </Text>
+                  <View style={{
+                    height:"32%",
+                    width:"95%",
+                    zIndex:10,
+                    marginTop:10,
+                    marginLeft:"2.5%",
+                    marginRight:"2.5%",
+                  }}>
+                    <GooglePlacesAutocomplete
+                      placeholder='Search'
+                      fetchDetails={true}
+                      style={styles.search}
+                      onPress={(data, details = null) => {
+                        // 'details' is provided when fetchDetails = true
+                        updateTitle("Eating at " + details.name);
+                        updateAdress(details.formatted_address);
+                        var d = new Date();
+                        var date = d.getDay();
+                        console.log(details.opening_hours.weekday_text[getVal(date)]);
+                        updateHours(details.opening_hours.weekday_text[getVal(date)]);
+                        toggleMap("flex");
+                      }}
+                      query={{
+                        key: 'AIzaSyDKOJs8dJeNcV4SLsOzaZufE0FmlB0Mreo',
+                        language: 'en',
+                      }}
+                    />
+                </View>
 
-        <Text style={styles.mainText3}>
-          create a new meetup now!
-        </Text>
-      </View>
+          <View style={styles.center}>
+              <Text style={styles.data}>  {title} </Text>
+              <Text style={styles.data1}> {address} </Text>
+              <Text style={styles.data1}> {hours} </Text>
+          </View>
 
-          <View style={styles.searchContainer}>
-            <GooglePlacesAutocomplete
-              placeholder='Search'
-              fetchDetails={true}
-              style={styles.search}
-              onPress={(data, details = null) => {
-                // 'details' is provided when fetchDetails = true
-                console.log("BeenPressed");
-                displayMap();
-              }}
-              query={{
-                key: 'AIzaSyDKOJs8dJeNcV4SLsOzaZufE0FmlB0Mreo',
-                language: 'en',
-              }}
-            />
+
+
+
+
+
+
+              <View style={styles.timeContainer}>
+                <Text style={styles.label2}> Time: </Text>
+                <TextInput
+                placeholder="2:30"
+                style={styles.input}
+                />
+              </View>
+
+              <Text style={styles.label}> Eat With: </Text>
+
+              <View style={styles.radioContainer} >
+                <RadioGroup
+                  radioButtons={radioButtons}
+                  onPress={onPressRadioButton}
+                  layout="row"
+                  style={styles.radio}
+                />
+              </View>
+
+              <View style={styles.center}>
+                <TouchableOpacity
+                  style={styles.button2} onPress={submitMeetup}>
+                    <Text style={styles.buttonText}>Submit</Text>
+                </TouchableOpacity>
+              </View>
+          </View>
+          <View>
+              <View style={styles.footerContainer}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Bootup')}>
+                  <Image
+                  source={require('../assets/homeIcon.png')}
+                  style={styles.headerImage}
+                  />
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Bootup')}>
+                  <Image
+                  source={require('../assets/plate-icon-fork-plate-and-fork-icon-11553392514ghe5jssldo.png')}
+                  style={styles.headerImage2}
+                  />
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Profile')}>
+                  <Image
+                  source={require('../assets/person.png')}
+                  style={styles.headerImage}
+                  />
+                </TouchableOpacity>
+              </View>
+          </View>
         </View>
-
-  <View style={styles.mapContainer}>
-    <MapView
-      initialRegion={{
-        latitude: 40.233845,
-        longitude: -111.658531,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }}
-      style={styles.map}
-      onPoiClick={e => console.log(e.nativeEvent)}
-    />
-  </View>
-
-
-
-
-
-
-
-      <View style={styles.timeContainer}>
-        <Text style={styles.label2}> Time: </Text>
-        <TextInput
-        placeholder="2:30"
-        style={styles.input}
-        onChangeText={nameChange}
-        value={nameText}
-        />
-      </View>
-
-      <Text style={styles.label}> Eat With: </Text>
-
-      <View style={styles.radioContainer} >
-        <RadioGroup
-          radioButtons={radioButtons}
-          onPress={onPressRadioButton}
-          layout="row"
-          style={styles.radio}
-        />
-      </View>
-
-      <View style={styles.center}>
-        <TouchableOpacity
-          style={styles.button2} onPress={() => navigation.navigate('Bootup')}>
-            <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.footer}>
-        <Footer/>
-      </View>
-
 
       </SafeAreaView>
     </View>
@@ -145,6 +207,23 @@ const styles = StyleSheet.create({
     width:"100%"
   },
 
+  data: {
+    fontSize:21,
+    color:"black",
+  },
+  data1: {
+    fontSize:18,
+    color:"black",
+    marginTop:5,
+  },
+
+  flexWrapper: {
+  height: "100%",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  },
+
+
   searchContainer: {
     height:"40%",
     width:"95%",
@@ -152,20 +231,18 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginLeft:"2%",
     marginRight:"2%",
-    },
+    display: "flex"
+  },
 
   map:{
     height:"100%",
-    width: "100%",
+    width: "95%",
+    marginLeft:"2%",
+    marginRight:"2%",
   },
 
   mapContainer:{
-    height:"40%",
-    width:'100%',
-    zIndex:2,
-    marginTop:10,
-    marginBottom:0,
-    display:"none"
+
   },
 
   mainText: {
@@ -287,11 +364,28 @@ const styles = StyleSheet.create({
     bottom:-13,
   },
 
-});
+  footerContainer: {
+    flexDirection: 'row',
+    backgroundColor:"white",
+    justifyContent:"space-around",
 
-function displayMap()
-{
-  styles.mapContainer={display:"block"}
-}
+  },
+
+  headerImage2: {
+    height:40,
+    width:40,
+    resizeMode:'contain',
+    marginLeft:5,
+    marginTop:5,
+  },
+
+  headerImage: {
+    height:40,
+    width:40,
+    resizeMode:'contain',
+    marginLeft:5,
+    marginTop:5,
+  },
+});
 
 export default HomeScreen;

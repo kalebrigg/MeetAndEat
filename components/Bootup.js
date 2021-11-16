@@ -22,6 +22,7 @@ const Bootup = ( {navigation} ) => {
     if (emailText == 'kaleb@gmail.com' && passwordText == 'password')
     {
       Alert.alert('Sign In Accepted');
+      navigation.navigate('HomeScreen')
     }
   }
 
@@ -76,7 +77,7 @@ const Bootup = ( {navigation} ) => {
           <Text style={styles.label2}> Not yet a member? Sign up now! </Text>
 
           <TouchableOpacity
-            style={styles.button2} onPress={() => navigation.navigate('HomeScreen')}>
+            style={styles.button2} onPress={() => navigation.navigate('SignUpProfile')}>
               <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </View>

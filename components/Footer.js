@@ -12,11 +12,13 @@ const Footer = ( {navigation} ) => {
 
 
           <View style={styles.footerContainer}>
-
-            <Image
-            source={require('../assets/homeIcon.png')}
-            style={styles.headerImage}
-            />
+            <TouchableOpacity
+              onPress={() => navigation.navigate('HomeScreen')}>
+              <Image
+              source={require('../assets/homeIcon.png')}
+              style={styles.headerImage}
+              />
+            </TouchableOpacity>
 
             <Image
             source={require('../assets/plate-icon-fork-plate-and-fork-icon-11553392514ghe5jssldo.png')}

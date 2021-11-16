@@ -4,6 +4,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import Header from './Header.js';
 import RadioGroup from 'react-native-radio-buttons-group';
 import {useState} from "react";
+import ModeOfContact from './ModeOfContact.js';
 
 const SignUpProfile = ( {navigation} ) => {
 
@@ -88,25 +89,28 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
         onChangeText={nameChange}
         value={nameText}
         />
+        <View style={styles.flexContainer}>
+          <View style={styles.ageContainer}>
+            <Text style={styles.ageText}> Age: </Text>
+            <TextInput
+              style={styles.ageInput}
+              onChangeText={ageChange}
+              value={ageText}
+              keyboardType="numeric"
+            />
+          </View>
 
-        <View style={styles.ageContainer}>
-          <Text style={styles.ageText}> Age: </Text>
-          <TextInput
-            style={styles.ageInput}
-            onChangeText={ageChange}
-            value={ageText}
-            keyboardType="numeric"
-          />
+          <View style={styles.radioContainer} >
+            <RadioGroup
+              radioButtons={radioButtons}
+              onPress={onPressRadioButton}
+              layout="row"
+              style={styles.radio}
+            />
+          </View>
         </View>
 
-        <View style={styles.radioContainer} >
-          <RadioGroup
-            radioButtons={radioButtons}
-            onPress={onPressRadioButton}
-            layout="row"
-            style={styles.radio}
-          />
-        </View>
+        <ModeOfContact/>
 
         <Text style={styles.label}> About You: </Text>
         <TextInput
@@ -116,10 +120,6 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
         value={nameText}
         />
         <View style={styles.center}>
-          <Text style={styles.label2}>
-            This might include your hobbies or anything fun or unique about you!
-          </Text>
-
           <TouchableOpacity
             style={styles.button} onPress={() => navigation.navigate('HomeScreen')}>
               <Text style={styles.buttonText}>Finish</Text>
@@ -134,6 +134,11 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 const styles = StyleSheet.create({
 
   container: {
+  },
+
+  flexContainer: {
+    flexDirection:"row",
+    marginBottom: 0,
   },
 
   mainText: {
@@ -182,7 +187,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
     marginLeft:"10%",
     width:"80%",
-    height:150,
+    height:140,
     backgroundColor:'white',
   },
 
@@ -202,7 +207,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    marginTop:25,
+    marginTop:15,
     flexDirection: 'row',
     justifyContent:'center',
     backgroundColor:"white",
@@ -230,7 +235,7 @@ const styles = StyleSheet.create({
   bouncyStyle: {
     marginLeft:40,
     marginTop:20,
-    marginBottom:60,
+
   },
 
   ageContainer: {
@@ -238,7 +243,6 @@ const styles = StyleSheet.create({
     alignItems:"center",
     alignContent:"center",
     marginTop:15,
-    marginBottom: 15,
     marginLeft: "10%"
   },
 
@@ -251,6 +255,7 @@ const styles = StyleSheet.create({
     width:50,
     height:42,
     backgroundColor:'white',
+    marginRight:10,
   },
 
   ageText: {
@@ -269,6 +274,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     color:"black",
+    marginTop:15,
   },
 
   center: {

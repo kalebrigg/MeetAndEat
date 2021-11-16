@@ -24,9 +24,11 @@ import SignUpProfile from './components/SignUpProfile.js';
 import Footer from './components/Footer.js';
 import Profile from './components/Profile.js';
 import HomeScreen from './components/HomeScreen.js';
+import ModeOfContact from './components/ModeOfContact.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import MeetupRequests from './components/MeetupRequests.js';
+import PastRequests from './components/PastRequests.js';
 import {
   Colors,
   DebugInstructions,
@@ -88,6 +90,27 @@ function App() {
           headerShown:false,
         }}
     />
+    <Stack.Screen
+      name="ModeOfContact"
+      component={ModeOfContact}
+      options={{
+        headerShown:false,
+      }}
+  />
+  <Stack.Screen
+    name="MeetupRequests"
+    component={MeetupRequests}
+    options={{
+      headerShown:false,
+    }}
+/>
+<Stack.Screen
+  name="PastRequests"
+  component={PastRequests}
+  options={{
+    headerShown:false,
+  }}
+/>
       </Stack.Navigator>
     </NavigationContainer>
   );
