@@ -46,7 +46,7 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
     <View styles={styles.container}>
       <SafeAreaView>
 
-      <Text style={styles.label}> Preffered contact method: </Text>
+      <Text style={styles.label}> Prefered contact method: </Text>
 
       <View style={styles.radioContainer} >
         <RadioGroup

@@ -31,6 +31,11 @@ const SignUpProfile = ( {navigation} ) => {
   },
 ];
 
+function finish() {
+  Alert.alert("Welcome! You're ready to create your first Meetup!");
+  navigation.navigate('HomeScreen')
+}
+
 const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 
   const onPressRadioButton = radioButtonsArray => {
@@ -121,7 +126,7 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
         />
         <View style={styles.center}>
           <TouchableOpacity
-            style={styles.button} onPress={() => navigation.navigate('HomeScreen')}>
+            style={styles.button} onPress={() => finish()}>
               <Text style={styles.buttonText}>Finish</Text>
           </TouchableOpacity>
         </View>

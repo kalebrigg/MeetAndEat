@@ -12,7 +12,7 @@ import { Dimensions } from 'react-native';
 
 
 
-const MeetupRequests = ( {navigation} ) => {
+const Meetups = ( {navigation} ) => {
 
 
   return (
@@ -24,65 +24,55 @@ const MeetupRequests = ( {navigation} ) => {
 
           <View style={styles.center}>
             <Text style={styles.mainText}>
-              Your Meetup Requests
+              Meetups Happening Today
             </Text>
           </View>
 
           <ScrollView style={styles.requestContainer}
             contentContainerStyle={styles.requestContainerContent}>
 
-
             <TouchableOpacity
-              onPress={() => navigation.navigate('Request1')}>
+              onPress={() => navigation.navigate('Meetup1')}>
               <View style={styles.requestItem}>
-                <Text style={styles.name}>Ruben Henson</Text>
-                <Text style={styles.place}>Meet at Chick-fil-a</Text>
-                <Text style={styles.info}>24 - Male</Text>
+                <Text style={styles.name}>Gabriella Mcdowell</Text>
+                <Text style={styles.place}>Wants to eat at Five Guys</Text>
+                <Text style={styles.info}>21 - Female</Text>
                 <Text style={styles.contact}>Contact Info Hidden</Text>
               </View>
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => navigation.navigate('Request2')}>
-              <View style={styles.requestItem}>
-                <Text style={styles.name}>Esteban Cannon</Text>
-                <Text style={styles.place}>Meet at Chick-fil-a</Text>
-                <Text style={styles.info}>21 - Male</Text>
-                <Text style={styles.contact}>Contact Info Hidden</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Request3')}>
-              <View style={styles.requestItem}>
-                <Text style={styles.name}>James Johnson</Text>
-                <Text style={styles.place}>Meet at Chick-fil-a</Text>
-                <Text style={styles.info}>23 - Male</Text>
-                <Text style={styles.contact}>Contact Info Hidden</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Request4')}>
+              onPress={() => navigation.navigate('Meetup2')}>
               <View style={styles.requestItem}>
                 <Text style={styles.name}>Josh Hale</Text>
-                <Text style={styles.place}>Meet at Chick-fil-a</Text>
+                <Text style={styles.place}>Wants to eat at Raising Canes</Text>
                 <Text style={styles.info}>23 - Male</Text>
                 <Text style={styles.contact}>Contact Info Hidden</Text>
               </View>
             </TouchableOpacity>
 
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Meetup3')}>
+              <View style={styles.requestItem}>
+                <Text style={styles.name}>Arabella Burgess</Text>
+                <Text style={styles.place}>Wants to eat at Subway</Text>
+                <Text style={styles.info}>24 - Female</Text>
+                <Text style={styles.contact}>Contact Info Hidden</Text>
+              </View>
+            </TouchableOpacity>
 
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Meetup4')}>
+              <View style={styles.requestItem}>
+                <Text style={styles.name}>Carla Powell</Text>
+                <Text style={styles.place}>Wants to eat at Chick-fil-a</Text>
+                <Text style={styles.info}>21 - Female</Text>
+                <Text style={styles.contact}>Contact Info Hidden</Text>
+              </View>
+            </TouchableOpacity>
 
           </ScrollView>
 
-          <View style={styles.center}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate('PastRequests')}>
-                <Text style={styles.buttonText}>Past Meetups</Text>
-            </TouchableOpacity>
-          </View>
         </View>
         <View>
 
@@ -96,7 +86,7 @@ const MeetupRequests = ( {navigation} ) => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPress={() => navigation.navigate('Meetups')}>
+                onPress={() => navigation.navigate('Bootup')}>
                 <Image
                 source={require('../assets/plate-icon-fork-plate-and-fork-icon-11553392514ghe5jssldo.png')}
                 style={styles.headerImage2}
@@ -121,7 +111,7 @@ const MeetupRequests = ( {navigation} ) => {
 const styles = StyleSheet.create({
 
   requestContainer: {
-    height: '62%',
+    height: '65%',
      width: '80%',
      margin: 20,
      alignSelf: 'center',
@@ -182,7 +172,7 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize:26,
     textAlign:'center',
-    marginTop:15,
+    marginTop:25,
     width:324,
     color: 'black',
   },
@@ -262,4 +252,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MeetupRequests;
+export default Meetups;

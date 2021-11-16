@@ -77,7 +77,7 @@ const Bootup = ( {navigation} ) => {
           <Text style={styles.label2}> Not yet a member? Sign up now! </Text>
 
           <TouchableOpacity
-            style={styles.button2} onPress={() => navigation.navigate('SignUpProfile')}>
+            style={styles.button2} onPress={() => navigation.navigate('SignUpScreen')}>
               <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </View>

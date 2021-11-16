@@ -49,7 +49,7 @@ const PastRequests = ( {navigation} ) => {
               <Text style={styles.name}>Josh Hale</Text>
               <Text style={styles.place}>Met at Raising Canes</Text>
               <Text style={styles.info}>23 - Male</Text>
-              <Text style={styles.contact}>Snapchat: jamesjohn</Text>
+              <Text style={styles.contact}>Snapchat: joshHale</Text>
             </View>
 
             <View style={styles.requestItem}>
@@ -102,7 +102,7 @@ const PastRequests = ( {navigation} ) => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPress={() => navigation.navigate('Bootup')}>
+                onPress={() => navigation.navigate('Meetups')}>
                 <Image
                 source={require('../assets/plate-icon-fork-plate-and-fork-icon-11553392514ghe5jssldo.png')}
                 style={styles.headerImage2}

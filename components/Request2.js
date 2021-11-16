@@ -8,7 +8,7 @@ import MapView from "react-native-maps";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Footer from './Footer.js';
 
-const Profile = ( {navigation} ) => {
+const Request2 = ( {navigation} ) => {
 
   const radioButtonsData = [
   {
@@ -33,8 +33,10 @@ const Profile = ( {navigation} ) => {
     value: 'option3',
     color: 'black',
     selected: true,
+    disabled: false,
   },
 ];
+const [shown, matchMade] = useState("none");
 
 const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 
@@ -43,6 +45,10 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
     setRadioButtons(radioButtonsArray);
   };
 
+function sendRequest() {
+  Alert.alert('Meetup confirmed! Contact your new friend and enjoy your meal. :)');
+  matchMade("flex");
+}
 
   return (
     <View styles={styles.container}>
@@ -52,18 +58,18 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
               <Header/>
 
               <Text style={styles.mainText}>
-                Kaleb Rigg
+              Esteban Cannon
               </Text>
               <Text style={styles.secondaryText}>
-                23   -   Male
+                {'Wants to eat at Chick-fil-a!\n21   -   Male'}
               </Text>
 
-              <Text style={styles.label}>About Me: </Text>
+              <Text style={styles.label}>About Esteban: </Text>
 
               <View style={styles.bioContainer} >
                 <Text style={styles.bioText}>
-                  Hi my name is Kaleb. I love chickfila and I'm excited to meet new friends.
-                  I like playing sports, working out, and watching anime. I am a student at BYU.
+                  Hi my name is Esteban. I love Chick-fil-a and I'm excited to meet new friends.
+                  I like playing sports, eating, and reading. I am a student at BYU.
                 </Text>
               </View>
 
@@ -79,21 +85,27 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
               </View>
 
               <View style={styles.contactContainer} >
-                <Text style={styles.contactText}>
-                  Instagram: klub23
+                <Text style={{
+                  color:'black',
+                  padding:5,
+                  fontSize: 20,
+                  textAlign:"center",
+                  display: shown
+                }}>
+                    Snapchat: estebancancan
                 </Text>
               </View>
               <View style={styles.center}><Text style={styles.labelCont}>hidden until match is made</Text></View>
 
               <View style={styles.buttonContainer}>
                   <TouchableOpacity
-                    style={styles.button} onPress={() => navigation.navigate('MeetupRequests')}>
-                      <Text style={styles.buttonText}>Meetup Requests</Text>
+                    style={styles.button} onPress={() => sendRequest()}>
+                      <Text style={styles.buttonText}>Confirm Meetup!</Text>
                   </TouchableOpacity>
 
                   <TouchableOpacity
-                    style={styles.button} onPress={() => navigation.navigate('PastRequests')}>
-                      <Text style={styles.buttonText}>Past Meetups</Text>
+                    style={styles.button} onPress={() => navigation.navigate('MeetupRequests')}>
+                      <Text style={styles.buttonText}>Go Back</Text>
                   </TouchableOpacity>
               </View>
           </View>
@@ -186,12 +198,12 @@ const styles = StyleSheet.create({
 
   },
 
-
   contactText: {
     color:'black',
     padding:5,
     fontSize: 20,
     textAlign:"center"
+
   },
 
   contactContainer: {
@@ -199,11 +211,11 @@ const styles = StyleSheet.create({
     borderWidth:2,
     borderColor:'#000000',
     borderRadius: 15,
-    marginLeft:"25%",
-    marginRight:"25%",
+    marginLeft:"15%",
+    marginRight:"15%",
     marginTop:15,
-    height:'auto',
-    width:"50%",
+    height:'6.5%',
+    width:"70%",
   },
 
   center: {
@@ -235,7 +247,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    marginTop:15,
+    marginTop:0,
     flexDirection: 'row',
     justifyContent:'center',
     backgroundColor:"white",
@@ -257,8 +269,8 @@ const styles = StyleSheet.create({
     justifyContent:"space-around",
     marginLeft:"5%",
     marginRight:"5%",
-    marginTop:5,
-    marginBottom:15
+    marginTop:0,
+    marginBottom:5
   },
 
 
@@ -276,4 +288,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Profile;
+export default Request2;

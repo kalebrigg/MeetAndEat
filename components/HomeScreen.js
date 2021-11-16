@@ -68,7 +68,6 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
 
   function submitMeetup() {
     Alert.alert("Your meetup has been created!");
-     navigation.navigate('Bootup')
   }
 
   let autoDisplay = "flex"
@@ -178,7 +177,7 @@ const [radioButtons, setRadioButtons] = useState(radioButtonsData);
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('Bootup')}>
+                  onPress={() => navigation.navigate('Meetups')}>
                   <Image
                   source={require('../assets/plate-icon-fork-plate-and-fork-icon-11553392514ghe5jssldo.png')}
                   style={styles.headerImage2}
