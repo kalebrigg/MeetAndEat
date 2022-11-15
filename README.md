@@ -47,7 +47,7 @@ My personas and potential users are motivated by growing, social interaction, an
 ## Development 
 
 Meet & Eat was developed using React Native. The project includes a sign in/sign up page, a profile page and logical states to create your profile page, a feed 
-of user submittted "Meetups", and a home page to create your own Meetup. 
+of user submittted "Meetups", and a home page to create your own Meetup. The live demo shows Google Map Autocomplete integration functionality. 
 
 <img src="https://i.ibb.co/smGQpJ9/Untitled-design-14.png" alt="Untitled-design-14" border="0">
 
