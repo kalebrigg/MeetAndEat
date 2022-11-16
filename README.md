@@ -49,7 +49,7 @@ My personas and potential users are motivated by growing, social interaction, an
 Meet & Eat was developed using React Native. The project includes a sign in/sign up page, a profile page and logical states to create your profile page, a feed 
 of user submittted "Meetups", and a home page to create your own Meetup. The live demo shows Google Map Autocomplete integration functionality. 
 
-<img src="https://i.ibb.co/smGQpJ9/Untitled-design-14.png" alt="Untitled-design-14" border="0">
+<img src="https://i.ibb.co/4WTBJNQ/Untitled-design.jpg" alt="Untitled-design" width="100%">
 
 ### Live Demo
 https://www.youtube.com/watch?v=gLKAOWrQH9s
@@ -68,7 +68,7 @@ https://www.youtube.com/watch?v=gLKAOWrQH9s
 
 Kaleb Rigg - kaleb2323rigg@gmail.com 
 
-Project Link: [https://github.com/github_username/github_repo](https://github.com/kalebrigg/MeetAndEat.git)
+Project Link: [https://github.com/kalebrigg/MeetAndEat](https://github.com/kalebrigg/MeetAndEat.git)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
