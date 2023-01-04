@@ -66,7 +66,7 @@ https://www.youtube.com/watch?v=gLKAOWrQH9s
 <!-- CONTACT -->
 ## Contact
 
-Kaleb Rigg - kaleb2323rigg@gmail.com 
+Kaleb Rigg - kalebriggdev@gmail.com 
 
 Project Link: [https://github.com/kalebrigg/MeetAndEat](https://github.com/kalebrigg/MeetAndEat.git)
 
